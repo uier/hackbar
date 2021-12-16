@@ -1,6 +1,8 @@
-import { printLine } from './modules/print';
+import React from 'react';
+import { render } from 'react-dom';
+import App from './App';
 
-console.log('Content script works!');
-console.log('Must reload extension for modifications to take effect.');
+const root = document.createElement('div');
+root.id = 'root';
 
-printLine("Using the 'printLine' function from the Print Module");
+render(<App />, root);
