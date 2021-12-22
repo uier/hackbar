@@ -9,7 +9,9 @@ import {
   KBarResults,
   useMatches,
   ActionImpl,
+  useRegisterActions,
 } from 'kbar';
+import defaultActions from './defaultActions';
 import useActions from './useActions';
 
 const backgroundColor = '#1c1c1d';
@@ -25,7 +27,7 @@ const searchStyle = {
   color,
 };
 const positionerStyle = {
-  zIndex: 99, // HackMD .ui-resizable-handle has { z-index: 90 }
+  zIndex: 99, // HackMD's .ui-resizable-handle has { z-index: 90 }
 };
 const animatorStyle = {
   maxWidth: '600px',
@@ -44,12 +46,8 @@ const groupNameStyle = {
 };
 
 const App = () => {
-  const { actions, isReady } = useActions();
-
-  if (!isReady) return <div />;
-
   return (
-    <KBarProvider actions={actions}>
+    <KBarProvider actions={defaultActions}>
       <KBarPortal>
         <KBarPositioner style={positionerStyle}>
           <KBarAnimator style={animatorStyle}>
@@ -61,8 +59,15 @@ const App = () => {
           </KBarAnimator>
         </KBarPositioner>
       </KBarPortal>
+      <ActionHandler />
     </KBarProvider>
   );
+};
+
+const ActionHandler = () => {
+  const { actions } = useActions();
+  useRegisterActions(actions, [actions.map((e) => e.id).join('')]);
+  return null;
 };
 
 function RenderResults() {
