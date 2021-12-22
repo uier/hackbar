@@ -11,6 +11,7 @@
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "kbar": "0.1.0-beta.24",
+    "lodash.debounce": "^4.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0"
@@ -21,6 +22,7 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@types/chrome": "^0.0.161",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/webpack-env": "^1.16.3",

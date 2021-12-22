@@ -10,9 +10,41 @@ import {
   useMatches,
   ActionImpl,
   useRegisterActions,
+  useKBar,
 } from 'kbar';
 import defaultActions from './defaultActions';
 import useActions from './useActions';
+
+const App = () => {
+  return (
+    <KBarProvider actions={defaultActions}>
+      <KBarPortal>
+        <KBarPositioner style={positionerStyle}>
+          <KBarAnimator style={animatorStyle}>
+            <KBarSearch
+              style={searchStyle}
+              placeholder="Search Note's title, Team name, Tag..."
+            />
+            <RenderResults />
+          </KBarAnimator>
+        </KBarPositioner>
+      </KBarPortal>
+      <ActionHandler />
+    </KBarProvider>
+  );
+};
+
+const ActionHandler = () => {
+  const { search } = useKBar((state) => ({ search: state.searchQuery }));
+  const { actions } = useActions(search.trim());
+  useRegisterActions(actions, [actions.map((e) => e.id).join('')]);
+  return null;
+};
+
+/**
+ * The following code is modified from the official kbar example:
+ * https://github.com/timc1/kbar/tree/main/example
+ */
 
 const backgroundColor = '#1c1c1d';
 const color = '#fcfcfc';
@@ -40,34 +72,8 @@ const animatorStyle = {
 };
 const groupNameStyle = {
   padding: '8px 16px',
-  fontSize: '11px',
-  textTransform: 'uppercase' as const,
+  fontSize: '12px',
   opacity: 0.5,
-};
-
-const App = () => {
-  return (
-    <KBarProvider actions={defaultActions}>
-      <KBarPortal>
-        <KBarPositioner style={positionerStyle}>
-          <KBarAnimator style={animatorStyle}>
-            <KBarSearch
-              style={searchStyle}
-              placeholder="Search Note's title, Team name, Tag..."
-            />
-            <RenderResults />
-          </KBarAnimator>
-        </KBarPositioner>
-      </KBarPortal>
-      <ActionHandler />
-    </KBarProvider>
-  );
-};
-
-const ActionHandler = () => {
-  const { actions } = useActions();
-  useRegisterActions(actions, [actions.map((e) => e.id).join('')]);
-  return null;
 };
 
 function RenderResults() {
@@ -120,9 +126,10 @@ const ResultItem = React.forwardRef(
       <div
         ref={ref}
         style={{
-          padding: '12px 16px',
+          margin: '2px 8px',
+          padding: '8px 8px',
           background: active ? 'rgb(53 53 54)' : 'transparent',
-          borderLeft: `2px solid ${active ? color : 'transparent'}`,
+          borderRadius: '8px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
