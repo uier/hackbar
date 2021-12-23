@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Uier/hackbar">
-    <img src="src/assets/img/../../../build/icon-128.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/img/icon-128.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">hackbar</h3>
@@ -115,8 +115,8 @@ For more detail, please refer to the [Documentation on HackMD](https://hackmd.io
 
 ## Roadmap
 
-- [] Search & Open notes in specific team (such as GitHub)
-- [] Create note in specific team
+- [ ] Search & Open notes in specific team (such as GitHub)
+- [ ] Create note in specific team
 
 See the [open issues](https://github.com/Uier/hackbar/issues) for a full list of proposed features (and known issues).
 
