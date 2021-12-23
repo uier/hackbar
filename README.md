@@ -14,7 +14,7 @@
     <img src="src/assets/img/../../../build/icon-128.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Hackbar</h3>
+<h3 align="center">hackbar</h3>
 
   <p align="center">
     A browser extension for using kbar in HackMD
@@ -47,7 +47,7 @@
 
 ![Product Name Screen Shot][product-screenshot]
 
-Hackbar provides a [kbar component](https://kbar.vercel.app/) to use in HackMD.
+hackbar provides a [kbar component](https://kbar.vercel.app/) to use in HackMD.
 
 Features:
 - Search notes, teams, tags, templates.

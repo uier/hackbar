@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Hackbar",
+  "name": "hackbar",
   "options_page": "options.html",
   "action": {
     "default_popup": "popup.html",
