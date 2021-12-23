@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useMemo, forwardRef, Ref, Fragment } from 'react';
 import {
   ActionId,
   KBarAnimator,
@@ -12,7 +12,7 @@ import {
   useRegisterActions,
   useKBar,
 } from 'kbar';
-import defaultActions from './defaultActions';
+import { defaultActions } from './defaultActions';
 import useActions from './useActions';
 
 const App = () => {
@@ -79,6 +79,8 @@ const groupNameStyle = {
 function RenderResults() {
   const { results, rootActionId } = useMatches();
 
+  if (results.length === 0) return <div style={{ padding: '8px 16px' }}>No Results.</div>;
+
   return (
     <KBarResults
       items={results}
@@ -97,7 +99,7 @@ function RenderResults() {
   );
 }
 
-const ResultItem = React.forwardRef(
+const ResultItem = forwardRef(
   (
     {
       action,
@@ -108,9 +110,9 @@ const ResultItem = React.forwardRef(
       active: boolean;
       currentRootActionId: ActionId;
     },
-    ref: React.Ref<HTMLDivElement>
+    ref: Ref<HTMLDivElement>
   ) => {
-    const ancestors = React.useMemo(() => {
+    const ancestors = useMemo(() => {
       if (!currentRootActionId) return action.ancestors;
       const index = action.ancestors.findIndex(
         (ancestor) => ancestor.id === currentRootActionId
@@ -149,7 +151,7 @@ const ResultItem = React.forwardRef(
             <div>
               {ancestors.length > 0 &&
                 ancestors.map((ancestor) => (
-                  <React.Fragment key={ancestor.id}>
+                  <Fragment key={ancestor.id}>
                     <span
                       style={{
                         opacity: 0.5,
@@ -165,7 +167,7 @@ const ResultItem = React.forwardRef(
                     >
                       &rsaquo;
                     </span>
-                  </React.Fragment>
+                  </Fragment>
                 ))}
               <span>{action.name}</span>
             </div>

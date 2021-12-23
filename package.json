@@ -1,7 +1,7 @@
 {
   "name": "hackbar",
   "version": "0.1.0",
-  "description": "A chrome extension for using kbar in HackMD",
+  "description": "A browser extension for using kbar in HackMD",
   "license": "MIT",
   "scripts": {
     "build": "node utils/build.js",

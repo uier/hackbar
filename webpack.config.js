@@ -35,8 +35,6 @@ if (fileSystem.existsSync(secretsPath)) {
 var options = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    options: path.join(__dirname, 'src', 'pages', 'Options', 'index.tsx'),
-    popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.tsx'),
     contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.tsx'),
   },
   chromeExtensionBoilerplate: {
