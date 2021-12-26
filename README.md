@@ -13,15 +13,11 @@
   <a href="https://github.com/Uier/hackbar">
     <img src="src/assets/img/icon-128.png" alt="Logo" width="80" height="80">
   </a>
-
-<h3 align="center">hackbar</h3>
-
+  <h3 align="center">hackbar</h3>
   <p align="center">
     A browser extension for using kbar in HackMD
     <br />
-    <a href="https://github.com/Uier/hackbar/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Uier/hackbar/issues">Request Feature</a>
+    <a href="https://github.com/Uier/hackbar/issues">Report Bug / Request Feature</a>
   </p>
 </div>
 
@@ -30,13 +26,13 @@
 
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
+  - [Features](#features)
   - [Built With](#built-with)
+- [Installation](#installation)
 - [Usage](#usage)
   - [Basic](#basic)
   - [Shortcuts](#shortcuts)
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Development](#development)
+- [Development](#development)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -45,35 +41,38 @@
 
 ## About The Project
 
-![Product Name Screen Shot][product-screenshot]
+hackbar provides a kbar component to use in HackMD.
 
-hackbar provides a [kbar component](https://kbar.vercel.app/) to use in HackMD.
+### Features
 
-Features:
-- Search notes, teams, tags, templates.
-- Create empty note or from templates.
+- Create empty note or create from templates.
+- Search & Open notes by title / tags / teams.
 - Switch between workspaces (teams).
-- Open recent or searched notes directly.
 - Shortcuts for creating note and switching team.
 
-![demo-new-note](demo/hackbar-new-note.gif)
-![demo-switch-team](demo/hackbar-switch-team.gif)
-![demo-search](demo/hackbar-search.gif)
-
+![](demo/hackbar-demo.gif)
 
 ### Built With
 
 * [React.js](https://reactjs.org/)
+* [kbar](https://kbar.vercel.app/)
 * [lxieyang/chrome-extension-boilerplate-react](https://github.com/lxieyang/chrome-extension-boilerplate-react)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Installation
+
+- [Chrome extension (chrome web store)](https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba)
+- Firefox add-on (WIP)
+- Manually download and locally load to your browser (WIP)
 
 
 ## Usage
 
 ### Basic
 
-- Press <kbd>⌘</kbd>+<kbd>k</kbd> / <kbd>Ctrl</kbd>+<kbd>k</kbd> to open kbar.
+- Press <kbd>⌘</kbd>+<kbd>k</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>k</kbd> (Windows & Linux) to open kbar.
 - Directly search things. Open note by title/tag, create note from template, team name.
 
 ### Shortcuts
@@ -87,14 +86,7 @@ For more detail, please refer to the [Documentation on HackMD](https://hackmd.io
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-## Getting Started
-
-### Installation
-
-- [Chrome extension download (not ready)](#installation)
-- [Firefox add-on download (not ready)](#installation)
-
-### Development
+## Development
 
 1. Clone the repo
    ```sh
@@ -131,9 +123,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feat/amazing-feature`)
+3. Commit your Changes with [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+4. Push to the Branch (`git push origin feat/amazing-feature`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -167,4 +159,3 @@ Project Link: [https://github.com/Uier/hackbar](https://github.com/Uier/hackbar)
 [issues-url]: https://github.com/Uier/hackbar/issues
 [license-shield]: https://img.shields.io/github/license/Uier/hackbar.svg?style=for-the-badge
 [license-url]: https://github.com/Uier/hackbar/blob/master/LICENSE
-[product-screenshot]: demo/screenshot.png
