@@ -1,6 +1,6 @@
 import React from "react";
 
-const icon = (
+export default () => (
     <svg
         width="24"
         height="24"
@@ -18,7 +18,3 @@ const icon = (
         <line x1="9" y1="15" x2="13" y2="15" />
     </svg>
 );
-
-export function NoteIcon() {
-    return icon;
-}

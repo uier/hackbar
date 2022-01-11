@@ -1,8 +1,7 @@
 import React from "react";
 import { Action } from "kbar";
 import { myWorkspaceAction } from "./defaultActions";
-import { NoteIcon } from "./icon/NoteIcon";
-import { PlusIcon } from "./icon/PlusIcon";
+import { PlusIcon, NoteIcon } from "./icon";
 
 interface History {
     history: {

@@ -1,6 +1,6 @@
 import React from "react";
 
-const icon = (
+export default () => (
     <svg
         width="24"
         height="24"
@@ -16,7 +16,3 @@ const icon = (
         <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /> <rect x="10" y="12" width="4" height="4" />
     </svg>
 );
-
-export function HomeIcon() {
-    return icon;
-}

@@ -1,8 +1,6 @@
 import React from "react";
 import { Action } from "kbar";
-import { PlusIcon } from "./icon/PlusIcon";
-import { SwitchIcon } from "./icon/SwitchIcon";
-import { HomeIcon } from "./icon/HomeIcon";
+import { PlusIcon, SwitchIcon, HomeIcon } from "./icon";
 
 export const defaultActions: Action[] = [
     {

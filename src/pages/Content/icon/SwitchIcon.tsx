@@ -1,6 +1,6 @@
 import React from "react";
 
-const icon = (
+export default () => (
     <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
             strokeWidth="2"
@@ -10,7 +10,3 @@ const icon = (
         />
     </svg>
 );
-
-export function SwitchIcon() {
-    return icon;
-}
