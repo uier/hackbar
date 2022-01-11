@@ -1,6 +1,10 @@
 {
-  "extends": "react-app",
-  "globals": {
-    "chrome": "readonly"
-  }
+    "extends": ["eslint:recommended"],
+    "globals": {
+        "chrome": "readonly"
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    }
 }
