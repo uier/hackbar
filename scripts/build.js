@@ -1,6 +1,7 @@
 const { spawnSync } = require("child_process");
-const { copyFileSync, writeFileSync, existsSync, rmSync } = require("fs");
+const { copyFileSync, writeFileSync, existsSync, rmSync, createWriteStream } = require("fs");
 const { resolve } = require("path");
+const archiver = require("archiver");
 
 // #region Configs
 const root = resolve(__dirname, "..");
@@ -35,4 +36,10 @@ Object.entries(files).forEach(([src, dest]) => {
 
 Object.assign(manifest, { version: package.version, description: package.description });
 writeFileSync(resolve(dest, "manifest.json"), JSON.stringify(manifest));
+// #endregion
+
+// #region Zip
+const archive = archiver("zip").glob("**/*", { cwd: dest, ignore: ["**/*.zip"] });
+archive.pipe(createWriteStream(resolve(dest, `hackbar_${package.version}.zip`)));
+archive.finalize();
 // #endregion
