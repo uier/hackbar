@@ -3,11 +3,14 @@ import type { History, Profile, Template, SearchResult } from "./types";
 import React from "react";
 import { myWorkspaceAction } from "./defaultActions";
 import { PlusIcon, NoteIcon } from "./icon";
+import { retry } from "./utils";
 
-export const fetchRecentNotes = async () => {
-    const histories: History[] = await fetch("/api/_/history?limit=3")
-        .then((res) => res.json())
-        .then((data) => data.history);
+export async function fetchRecentNotes() {
+    const histories: History[] = await retry(() =>
+        fetch("/api/_/history?limit=3")
+            .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+            .then((data) => data.history),
+    );
     const recentNotes: Action[] = histories.map(({ id, title, tags }) => ({
         id,
         name: title,
@@ -19,10 +22,10 @@ export const fetchRecentNotes = async () => {
         icon: <NoteIcon />,
     }));
     return recentNotes;
-};
+}
 
-export const fetchTeams = async () => {
-    const profile: Profile = await fetch("/me").then((res) => res.json());
+export async function fetchTeams() {
+    const profile: Profile = await retry(() => fetch("/me").then((res) => (res.ok ? res.json() : Promise.reject(res))));
     const teamActions: Action[] = profile.teams.map(({ id, name, path, logo }) => ({
         id,
         name,
@@ -35,12 +38,14 @@ export const fetchTeams = async () => {
     }));
     const teamActionsWithMyWorkspaceprepended = [myWorkspaceAction(<TeamAvatar src={profile.photo} />), ...teamActions];
     return teamActionsWithMyWorkspaceprepended;
-};
+}
 
-export const fetchTemplaces = async () => {
-    const templates: Template[] = await fetch("/template")
-        .then((res) => res.json())
-        .then((data) => data.templates);
+export async function fetchTemplaces() {
+    const templates: Template[] = await retry(() =>
+        fetch("/template")
+            .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+            .then((data) => data.templates),
+    );
     const templateActions: Action[] = templates.map(({ id, title: name }) => ({
         id,
         name,
@@ -52,24 +57,13 @@ export const fetchTemplaces = async () => {
         parent: "new-note",
     }));
     return templateActions;
-};
+}
 
-const createNote = (templateId: string) => {
-    fetch(`/template/${templateId}`, {
-        method: "POST",
-        headers: {
-            "x-xsrf-token": (document.querySelector('meta[name="csrf-token"]') as Element).getAttribute(
-                "content",
-            ) as string,
-        },
-    })
-        .then((res) => res.text())
-        .then((url) => (window.location.href = url));
-};
-
-export const searchNotes = async (query: string) => {
+export async function searchNotes(query: string) {
     if (!query) return [];
-    const results: SearchResult[] = await fetch(`/api/_/search?q=${query}`).then((res) => res.json());
+    const results: SearchResult[] = await retry(() =>
+        fetch(`/api/_/search?q=${query}`).then((res) => (res.ok ? res.json() : Promise.reject(res))),
+    );
     const noteActions: Action[] = results.map(({ id, title, tags, team }) => ({
         id,
         name: title,
@@ -81,7 +75,16 @@ export const searchNotes = async (query: string) => {
         icon: <NoteIcon />,
     }));
     return noteActions;
-};
+}
+
+async function createNote(templateId: string) {
+    const csrfToken = document.querySelector("meta[name=csrf-token]")?.getAttribute("content") as string;
+    return retry(() =>
+        fetch(`/template/${templateId}`, { method: "POST", headers: { "x-xsrf-token": csrfToken } })
+            .then((res) => (res.ok ? res.text() : Promise.reject(res)))
+            .then((url) => (window.location.href = url)),
+    );
+}
 
 function TeamAvatar(props: { src: string }) {
     return <img width={24} height={24} style={{ borderRadius: 12 }} src={props.src}></img>;
