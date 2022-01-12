@@ -1,5 +1,5 @@
+import type { Action } from "kbar";
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Action } from "kbar";
 import debounce from "lodash.debounce";
 import { defaultActions, emptyNoteAction } from "./defaultActions";
 import { fetchRecentNotes, fetchTeams, fetchTemplaces, searchNotes } from "./fetchActions";

@@ -1,5 +1,5 @@
+import type { Action } from "kbar";
 import React from "react";
-import { Action } from "kbar";
 import { PlusIcon, SwitchIcon, HomeIcon } from "./icon";
 
 export const defaultActions: Action[] = [

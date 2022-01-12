@@ -1,6 +1,7 @@
-import React, { useMemo, forwardRef, Ref, Fragment } from "react";
+import type { Ref } from "react";
+import type { ActionId } from "kbar";
+import React, { useMemo, forwardRef, Fragment } from "react";
 import {
-    ActionId,
     KBarAnimator,
     KBarProvider,
     KBarPortal,
