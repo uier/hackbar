@@ -6,7 +6,7 @@
     "scripts": {
         "prepare": "npm run lint && npm run build",
         "build": "node scripts/build.js",
-        "format": "prettier --write \"**/*.{html,js,jsx,ts,tsx,json,yml,css,md}\" \"!build\"",
+        "format": "prettier --write \"**/*.{html,js,jsx,ts,tsx,json,yaml,css,md}\" \"!build\"",
         "lint": "npm run -s format && eslint \"src/**/*.{js,ts,tsx}\" && echo \"Lint finished.\""
     },
     "dependencies": {
