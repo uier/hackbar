@@ -1,6 +1,12 @@
 {
-  "extends": "react-app",
-  "globals": {
-    "chrome": "readonly"
-  }
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+    "globals": {
+        "chrome": "readonly"
+    },
+    "env": {
+        "es6": true
+    }
 }

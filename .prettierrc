@@ -1,7 +1,8 @@
 {
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "requirePragma": false,
-  "arrowParens": "always",
-  "printWidth": 90
+    "tabWidth": 4,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "requirePragma": false,
+    "arrowParens": "always",
+    "printWidth": 120
 }
