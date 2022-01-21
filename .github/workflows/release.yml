@@ -1,0 +1,35 @@
+name: Release New Version
+
+on:
+    push:
+        tags:
+            - "v*"
+    workflow_dispatch:
+
+jobs:
+    release_new_version:
+        name: Release New Version
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+
+            - name: Cache PNPM Modules
+              uses: actions/cache@v2
+              with:
+                  path: ~/.pnpm-store
+                  key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-
+
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v2.0.1
+              with:
+                  version: latest
+                  run_install: true
+
+            - name: Make New Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: |
+                      build/hackbar_*.zip

@@ -1,0 +1,30 @@
+name: Build Check
+
+on: 
+    - push
+    - pull_request
+
+jobs:
+    build_check:
+        name: Build Check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+
+            - name: Cache PNPM Modules
+              uses: actions/cache@v2
+              with:
+                  path: ~/.pnpm-store
+                  key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-
+
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v2.0.1
+              with:
+                  version: latest
+                  run_install: true
+
+            - name: Build
+              run: pnpm run build
