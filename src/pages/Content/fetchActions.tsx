@@ -1,9 +1,31 @@
 import type { Action } from "kbar";
-import type { History, Profile, Template, SearchResult } from "./types";
+import type { History, Profile, Template, SearchResult, Note } from "./types";
 import React from "react";
 import { myWorkspaceAction } from "./defaultActions";
 import { PlusIcon, NoteIcon } from "./icon";
 import { retry } from "./utils";
+
+function createNotePath(note: Note): string {
+    const id = note.id;
+    const shortId = note.shortId;
+    const userpath = note.userpath;
+    const teampath = note.teampath;
+
+    let path = `/${id}`;
+    if (teampath != null) {
+        path = `@${teampath}/${shortId}`;
+    } else if (userpath != null) {
+        path = `@${userpath}/${shortId}`;
+    }
+
+    return path;
+}
+
+export async function fetchProfile() {
+    const profile: Profile = await retry(() => fetch("/me").then((res) => (res.ok ? res.json() : Promise.reject(res))));
+
+    return profile;
+}
 
 export async function fetchRecentNotes() {
     const histories: History[] = await retry(() =>
@@ -11,13 +33,17 @@ export async function fetchRecentNotes() {
             .then((res) => (res.ok ? res.json() : Promise.reject(res)))
             .then((data) => data.history),
     );
-    const recentNotes: Action[] = histories.map(({ id, title, tags }) => ({
+    const profile: Profile = await fetchProfile();
+    const recentNotes: Action[] = histories.map(({ id, shortId, teampath, title, tags }) => ({
         id,
+        shortId,
+        teampath,
         name: title,
         section: "Recent",
         subtitle: tags.map((t) => `#${t}`).join(" ") || "(no tags)",
         perform: () => {
-            window.location.pathname = `/${id}`;
+            const path = createNotePath({ id, shortId, userpath: profile?.userpath, teampath });
+            window.parent.location.pathname = path;
         },
         icon: <NoteIcon />,
     }));
@@ -25,7 +51,7 @@ export async function fetchRecentNotes() {
 }
 
 export async function fetchTeams() {
-    const profile: Profile = await retry(() => fetch("/me").then((res) => (res.ok ? res.json() : Promise.reject(res))));
+    const profile: Profile = await fetchProfile();
     const teamActions: Action[] = profile.teams.map(({ id, name, path, logo }) => ({
         id,
         name,
@@ -64,13 +90,16 @@ export async function searchNotes(query: string) {
     const results: SearchResult[] = await retry(() =>
         fetch(`/api/_/search?q=${query}`).then((res) => (res.ok ? res.json() : Promise.reject(res))),
     );
-    const noteActions: Action[] = results.map(({ id, title, tags, team }) => ({
+    const profile: Profile = await fetchProfile();
+    const noteActions: Action[] = results.map(({ id, shortId, title, tags, team }) => ({
         id,
+        shortId,
         name: title,
         section: "Search Results",
         subtitle: `@${team?.name || "My Workspace"} ${(tags || []).map((t) => `#${t}`).join(" ") || "(no tags)"}`,
         perform: () => {
-            window.location.pathname = `/${id}`;
+            const path = createNotePath({ id, shortId, userpath: profile?.userpath, teampath: team?.path });
+            window.parent.location.pathname = path;
         },
         icon: <NoteIcon />,
     }));
