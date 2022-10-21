@@ -22,7 +22,7 @@ const App = () => {
             <KBarPortal>
                 <KBarPositioner style={positionerStyle}>
                     <KBarAnimator style={animatorStyle}>
-                        <KBarSearch style={searchStyle} placeholder="Search Note's title, Team name, Tag..." />
+                        <KBarSearch style={searchStyle} defaultPlaceholder="Search Note's title, Team name, Tag..." />
                         <RenderResults />
                     </KBarAnimator>
                 </KBarPositioner>
