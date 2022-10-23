@@ -1,4 +1,4 @@
-import type { Ref } from "react";
+import { Ref } from "react";
 import type { ActionId } from "kbar";
 import React, { useMemo, forwardRef, Fragment } from "react";
 import {
@@ -16,9 +16,9 @@ import {
 import { defaultActions } from "./defaultActions";
 import useActions from "./useActions";
 
-const App = () => {
+const App = (props: { shortcut: string }) => {
     return (
-        <KBarProvider actions={defaultActions}>
+        <KBarProvider actions={defaultActions} options={{ toggleShortcut: props.shortcut }}>
             <KBarPortal>
                 <KBarPositioner style={positionerStyle}>
                     <KBarAnimator style={animatorStyle}>

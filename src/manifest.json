@@ -6,6 +6,7 @@
         "default_popup": "popup.html",
         "default_icon": "icon-34.png"
     },
+    "permissions": ["storage"],
     "icons": {
         "128": "icon-128.png"
     },

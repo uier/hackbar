@@ -21,19 +21,19 @@
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-  - [Features](#features)
-  - [Built With](#built-with)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Basic](#basic)
-  - [Shortcuts](#shortcuts)
-- [Development](#development)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+-   [Table of Contents](#table-of-contents)
+-   [About The Project](#about-the-project)
+    -   [Features](#features)
+    -   [Built With](#built-with)
+-   [Installation](#installation)
+-   [Usage](#usage)
+    -   [Basic](#basic)
+    -   [Shortcuts](#shortcuts)
+-   [Development](#development)
+-   [Roadmap](#roadmap)
+-   [Contributing](#contributing)
+-   [License](#license)
+-   [Contact](#contact)
 
 ## About The Project
 
