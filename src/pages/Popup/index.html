@@ -3,29 +3,53 @@
     <head>
         <meta charset="UTF-8" />
         <title>hackbar popup</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
     </head>
 
     <body style="background-color: #333; border: 3px solid #eee; margin: 0">
-        <div style="width: 300px; height: 150px">
-            <p
-                style="
-                    text-align: center;
-                    margin-top: 20px;
-                    font-size: 14px;
-                    font-family: 'Source Sans Pro';
-                    color: white;
-                "
+        <div id="container">
+            <div id="loading" style="font-size: 20px">loading... please wail</div>
+
+            <div>
+                <span>Usage: Press <kbd id="shortcut" class="shortcut"></kbd> to open kbar.</span>
+            </div>
+
+            <div style="margin-top: 20px">
+                <span>shortcut: <kbd id="edit-shortcut" class="shortcut"></kbd></span>
+                <button id="edit">edit</button>
+            </div>
+
+            <div id="hint" style="margin-top: 20px"></div>
+
+            <div style="margin: 20px 0 20px">Please close this popup before using kbar.</div>
+
+            <a
+                href="https://github.com/uier/hackbar"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Star hackbar on GitHub"
+                style="color: white"
             >
-                Usage: Press <kbd>⌘+k</kbd> / <kbd>Ctrl+k</kbd> to open kbar.
-                <br />
-                <br />
-                Please close this popup before using kbar.
-                <br />
-                <br />
-                <a style="color: white" href="https://github.com/uier/hackbar" rel="noopener noreferrer" target="_blank"
-                    >GitHub Repo</a
-                >
-            </p>
+                ⭐️ GitHub
+            </a>
         </div>
+        <script src="./popup.js"></script>
+        <style>
+            #container {
+                width: 400px;
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                padding: 30px;
+                font-size: 16px;
+                font-family: "Source Sans Pro";
+                color: white;
+            }
+            .shortcut {
+                margin: 0 4px;
+            }
+        </style>
     </body>
 </html>
