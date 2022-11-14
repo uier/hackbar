@@ -22,19 +22,19 @@
 
 ## Table of Contents
 
--   [Table of Contents](#table-of-contents)
--   [About The Project](#about-the-project)
-    -   [Features](#features)
-    -   [Built With](#built-with)
--   [Installation](#installation)
--   [Usage](#usage)
-    -   [Basic](#basic)
-    -   [Shortcuts](#shortcuts)
--   [Development](#development)
--   [Roadmap](#roadmap)
--   [Contributing](#contributing)
--   [License](#license)
--   [Contact](#contact)
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Features](#features)
+  - [Built With](#built-with)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic](#basic)
+  - [Shortcuts](#shortcuts)
+- [Development](#development)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## About The Project
 
@@ -140,7 +140,7 @@ Project Link: [https://github.com/Uier/hackbar](https://github.com/Uier/hackbar)
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [chrome-user-shield]: https://img.shields.io/chrome-web-store/users/algbkiepdpcjnhgagoddfcicdeaiimba?style=for-the-badge
-[chrome-user-url]: chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba
+[chrome-user-url]: https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba
 [contributors-shield]: https://img.shields.io/github/contributors/Uier/hackbar.svg?style=for-the-badge
 [contributors-url]: https://github.com/Uier/hackbar/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Uier/hackbar.svg?style=for-the-badge
