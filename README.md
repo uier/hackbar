@@ -1,5 +1,6 @@
 <div id="top"></div>
 
+[![Users][chrome-user-shield]][chrome-user-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -138,6 +139,8 @@ Project Link: [https://github.com/Uier/hackbar](https://github.com/Uier/hackbar)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
+[chrome-user-shield]: https://img.shields.io/chrome-web-store/users/algbkiepdpcjnhgagoddfcicdeaiimba?style=for-the-badge
+[chrome-user-url]: chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba
 [contributors-shield]: https://img.shields.io/github/contributors/Uier/hackbar.svg?style=for-the-badge
 [contributors-url]: https://github.com/Uier/hackbar/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Uier/hackbar.svg?style=for-the-badge
