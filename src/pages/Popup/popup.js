@@ -4,6 +4,8 @@ const editButton = document.querySelector("#edit");
 const loadingText = document.querySelector("#loading");
 const hintText = document.querySelector("#hint");
 const defaultShortcut = navigator.userAgent.toUpperCase().includes("MAC") ? "Command+k" : "Control+k";
+let startRecording = false;
+let pressedKeys = [];
 const setLoading = (isLoading) => {
     if (isLoading) {
         loadingText.style.display = "block";
@@ -18,8 +20,9 @@ const getShortcutName = (shortcut) => {
 };
 const getShortcut = () => {
     chrome.storage.sync.get("shortcut", (data) => {
-        shortcutLabel.innerText = getShortcutName(data.shortcut) || defaultShortcut;
-        editShortcutLabel.innerText = getShortcutName(data.shortcut) || defaultShortcut;
+        const sc = data && data.shortcut ? getShortcutName(data.shortcut) : defaultShortcut;
+        shortcutLabel.innerText = sc;
+        editShortcutLabel.innerText = sc;
         setLoading(false);
     });
 };
@@ -36,8 +39,6 @@ const logKeydown = (event) => {
 
 setLoading(true);
 getShortcut();
-let startRecording = false;
-let pressedKeys = [];
 window.addEventListener("keyup", () => {
     if (startRecording) {
         window.removeEventListener("keydown", logKeydown);
@@ -46,9 +47,9 @@ window.addEventListener("keyup", () => {
     }
 });
 editButton.addEventListener("click", () => {
+    hintText.innerText = "";
     pressedKeys = [];
     startRecording = true;
-    editShortcutLabel.innerText = "(type the new keys)";
-    hintText.innerText = "";
     window.addEventListener("keydown", logKeydown);
+    editShortcutLabel.innerText = "(type the new keys)";
 });
