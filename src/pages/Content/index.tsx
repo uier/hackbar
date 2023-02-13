@@ -5,4 +5,6 @@ import App from "./App";
 const root = document.createElement("div");
 root.id = "hackbar-app-root";
 
-render(<App />, root);
+chrome.storage.sync.get("shortcut", (data) => {
+    render(<App shortcut={data.shortcut} />, root);
+});

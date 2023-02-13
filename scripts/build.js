@@ -14,6 +14,7 @@ const package = require(resolve(root, "package.json"));
 
 const files = {
     [resolve(src, "pages/Popup/index.html")]: resolve(dest, "popup.html"),
+    [resolve(src, "pages/Popup/popup.js")]: resolve(dest, "popup.js"),
     [resolve(src, "pages/Options/index.html")]: resolve(dest, "options.html"),
     [resolve(src, "assets/img/icon-34.png")]: resolve(dest, "icon-34.png"),
     [resolve(src, "assets/img/icon-128.png")]: resolve(dest, "icon-128.png"),

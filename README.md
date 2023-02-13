@@ -9,14 +9,14 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/Uier/hackbar">
+  <a href="https://github.com/uier/hackbar">
     <img src="src/assets/img/icon-128.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">hackbar</h3>
   <p align="center">
     A browser extension for using kbar in HackMD
     <br />
-    <a href="https://github.com/Uier/hackbar/issues">Report Bug / Request Feature</a>
+    <a href="https://github.com/uier/hackbar/issues">Report Bug / Request Feature</a>
   </p>
 </div>
 
@@ -84,16 +84,16 @@ For more detail, please refer to the [Documentation on HackMD](https://hackmd.io
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/Uier/hackbar.git
+    git clone https://github.com/uier/hackbar.git
     cd hackbar
     ```
-2. Run dev server
+2. Install dependencies
     ```sh
-    yarn start
+    pnpm i
     ```
-3. Build production
+3. Build extension in `build/`
     ```sh
-    yarn build
+    pnpm prepare
     ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -103,7 +103,7 @@ For more detail, please refer to the [Documentation on HackMD](https://hackmd.io
 -   [ ] Search & Open notes in specific team (such as GitHub)
 -   [ ] Create note in specific team
 
-See the [open issues](https://github.com/Uier/hackbar/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/uier/hackbar/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,9 +130,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-TzuWei Yu (Uier) - ap9940506@gmail.com
+TzuWei Yu (uier) - ap9940506@gmail.com
 
-Project Link: [https://github.com/Uier/hackbar](https://github.com/Uier/hackbar)
+Project Link: [https://github.com/uier/hackbar](https://github.com/uier/hackbar)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -141,13 +141,13 @@ Project Link: [https://github.com/Uier/hackbar](https://github.com/Uier/hackbar)
 
 [chrome-user-shield]: https://img.shields.io/chrome-web-store/users/algbkiepdpcjnhgagoddfcicdeaiimba?style=for-the-badge
 [chrome-user-url]: https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba
-[contributors-shield]: https://img.shields.io/github/contributors/Uier/hackbar.svg?style=for-the-badge
-[contributors-url]: https://github.com/Uier/hackbar/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Uier/hackbar.svg?style=for-the-badge
-[forks-url]: https://github.com/Uier/hackbar/network/members
-[stars-shield]: https://img.shields.io/github/stars/Uier/hackbar.svg?style=for-the-badge
-[stars-url]: https://github.com/Uier/hackbar/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Uier/hackbar.svg?style=for-the-badge
-[issues-url]: https://github.com/Uier/hackbar/issues
-[license-shield]: https://img.shields.io/github/license/Uier/hackbar.svg?style=for-the-badge
-[license-url]: https://github.com/Uier/hackbar/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/uier/hackbar.svg?style=for-the-badge
+[contributors-url]: https://github.com/uier/hackbar/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/uier/hackbar.svg?style=for-the-badge
+[forks-url]: https://github.com/uier/hackbar/network/members
+[stars-shield]: https://img.shields.io/github/stars/uier/hackbar.svg?style=for-the-badge
+[stars-url]: https://github.com/uier/hackbar/stargazers
+[issues-shield]: https://img.shields.io/github/issues/uier/hackbar.svg?style=for-the-badge
+[issues-url]: https://github.com/uier/hackbar/issues
+[license-shield]: https://img.shields.io/github/license/uier/hackbar.svg?style=for-the-badge
+[license-url]: https://github.com/uier/hackbar/blob/master/LICENSE
