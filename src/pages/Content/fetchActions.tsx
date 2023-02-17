@@ -33,16 +33,17 @@ export async function fetchRecentNotes() {
             .then((res) => (res.ok ? res.json() : Promise.reject(res)))
             .then((data) => data.history),
     );
-    const profile: Profile = await fetchProfile();
-    const recentNotes: Action[] = histories.map(({ id, shortId, teampath, title, tags }) => ({
+    const recentNotes: Action[] = histories.map(({ id, shortId, userpath, teampath, title, tags, isOwner }) => ({
         id,
         shortId,
         teampath,
         name: title,
         section: "Recent",
-        subtitle: tags.map((t) => `#${t}`).join(" ") || "(no tags)",
+        subtitle: `@${teampath || (isOwner ? "My Workspace" : userpath)} ${
+            (tags || []).map((t) => `#${t}`).join(" ") || "(no tags)"
+        }`,
         perform: () => {
-            const path = createNotePath({ id, shortId, userpath: profile?.userpath, teampath });
+            const path = createNotePath({ id, shortId, userpath, teampath });
             window.parent.location.pathname = path;
         },
         icon: <NoteIcon />,
@@ -90,15 +91,20 @@ export async function searchNotes(query: string) {
     const results: SearchResult[] = await retry(() =>
         fetch(`/api/_/search?q=${query}`).then((res) => (res.ok ? res.json() : Promise.reject(res))),
     );
-    const profile: Profile = await fetchProfile();
-    const noteActions: Action[] = results.map(({ id, shortId, title, tags, team }) => ({
+    const displayNoteOwner = ({ owner, team, isOwner }: Partial<SearchResult>) => {
+        if (isOwner) return "@My Workspace";
+        return `@${team?.path || owner?.userpath} (${team?.name || owner?.name})`;
+    };
+    const noteActions: Action[] = results.map(({ id, owner, shortId, title, tags, team, isOwner }) => ({
         id,
         shortId,
         name: title,
         section: "Search Results",
-        subtitle: `@${team?.name || "My Workspace"} ${(tags || []).map((t) => `#${t}`).join(" ") || "(no tags)"}`,
+        subtitle: `${displayNoteOwner({ owner, team, isOwner })} ${
+            (tags || []).map((t) => `#${t}`).join(" ") || "(no tags)"
+        }`,
         perform: () => {
-            const path = createNotePath({ id, shortId, userpath: profile?.userpath, teampath: team?.path });
+            const path = createNotePath({ id, shortId, userpath: owner?.userpath, teampath: team?.path });
             window.parent.location.pathname = path;
         },
         icon: <NoteIcon />,
