@@ -5,6 +5,7 @@ export interface History {
     teampath: string;
     title: string;
     tags: string[];
+    isOwner?: boolean;
 }
 
 export interface Profile {
@@ -28,10 +29,15 @@ export interface SearchResult {
     shortId: string;
     title: string;
     tags: string[];
+    owner?: {
+        name: string;
+        userpath: string;
+    };
     team?: {
         name: string;
         path: string;
     };
+    isOwner?: boolean;
 }
 
 export interface Note {
