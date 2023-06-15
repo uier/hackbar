@@ -6,33 +6,22 @@
         "default_popup": "popup.html",
         "default_icon": "icon-34.png"
     },
-    "permissions": [
-        "storage"
-    ],
+    "permissions": ["storage"],
     "icons": {
         "128": "icon-128.png"
     },
     "content_scripts": [
         {
-            "matches": [
-                "https://hackmd.io/*"
-            ],
-            "js": [
-                "contentScript.js"
-            ],
+            "matches": ["https://hackmd.io/*"],
+            "js": ["contentScript.js"],
             "run_at": "document_idle",
             "all_frames": true
         }
     ],
     "web_accessible_resources": [
         {
-            "resources": [
-                "icon-128.png",
-                "icon-34.png"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
+            "resources": ["icon-128.png", "icon-34.png"],
+            "matches": ["<all_urls>"]
         }
     ],
     "browser_specific_settings": {
