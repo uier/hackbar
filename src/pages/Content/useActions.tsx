@@ -1,6 +1,6 @@
 import type { Action } from "kbar";
 import { useState, useMemo, useEffect, useCallback } from "react";
-import debounce from "lodash.debounce";
+import { useDebounce } from "usehooks-ts";
 import { defaultActions, emptyNoteAction } from "./defaultActions";
 import { fetchRecentNotes, fetchTeams, fetchTemplaces, searchNotes } from "./fetchActions";
 
@@ -9,6 +9,7 @@ function useActions(query: string) {
     const [teamActions, setTeamActions] = useState<Action[]>([]);
     const [templateActions, setTemplateActions] = useState<Action[]>([]);
     const [searchedNoteActions, setSearchedNoteActions] = useState<Action[]>([]);
+    const debouncedQuery = useDebounce<string>(query, 500);
 
     /**
      * Putting defaultActions here again is a workaround to order the actions,
@@ -45,15 +46,12 @@ function useActions(query: string) {
             .catch(() => setTeamActions([]));
     }, []);
 
-    const collectSearchedNoteActions = useCallback(
-        debounce((query) => {
-            searchNotes(query)
-                .then(setSearchedNoteActions)
-                .catch(console.error)
-                .catch(() => setSearchedNoteActions([]));
-        }, 500),
-        [],
-    );
+    const collectSearchedNoteActions = useCallback((query) => {
+        searchNotes(query)
+            .then(setSearchedNoteActions)
+            .catch(console.error)
+            .catch(() => setSearchedNoteActions([]));
+    }, []);
 
     useEffect(() => {
         collectTeamActions();
@@ -65,8 +63,8 @@ function useActions(query: string) {
     }, [window.location.pathname]);
 
     useEffect(() => {
-        collectSearchedNoteActions(query);
-    }, [query]);
+        collectSearchedNoteActions(debouncedQuery);
+    }, [debouncedQuery]);
 
     return { actions };
 }
