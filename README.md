@@ -20,21 +20,30 @@
   </p>
 </div>
 
+<div align="center">
+  <a href="https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba" target="_blank" rel="noreferrer noopenner">
+    <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
+  </a>
+  <a href="https://addons.mozilla.org/firefox/addon/hackmd-kbar" target="_blank" rel="noreferrer noopenner">
+    <img src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" />
+  </a>
+</div>
+
 ## Table of Contents
 
--   [Table of Contents](#table-of-contents)
--   [About The Project](#about-the-project)
-    -   [Features](#features)
-    -   [Built With](#built-with)
--   [Installation](#installation)
--   [Usage](#usage)
-    -   [Basic](#basic)
-    -   [Shortcuts](#shortcuts)
--   [Development](#development)
--   [Roadmap](#roadmap)
--   [Contributing](#contributing)
--   [License](#license)
--   [Contact](#contact)
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Features](#features)
+  - [Built With](#built-with)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic](#basic)
+  - [Shortcuts](#shortcuts)
+- [Development](#development)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## About The Project
 
@@ -60,8 +69,8 @@ hackbar provides a kbar component to use in HackMD.
 ## Installation
 
 -   [Chrome extension (chrome web store)](https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba)
--   Firefox add-on (WIP)
--   Manually download and locally load to your browser (WIP)
+-   [Firefox add-on](https://addons.mozilla.org/firefox/addon/hackmd-kbar/)
+-   Manually download and locally load to your browser, see [Releases](https://github.com/uier/hackbar/releases).
 
 ## Usage
 
