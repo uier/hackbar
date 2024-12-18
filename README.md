@@ -16,17 +16,11 @@
   <p align="center">
     A browser extension for using kbar in HackMD
     <br />
+    Get it now from <a href="https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba" target="_blank" rel="noreferrer noopenner">Chrome Web Store</a> or <a href="https://addons.mozilla.org/firefox/addon/hackmd-kbar" target="_blank" rel="noreferrer noopenner">Firefox Addon</a>
+    <br />
+    <br />
     <a href="https://github.com/uier/hackbar/issues">Report Bug / Request Feature</a>
   </p>
-</div>
-
-<div align="center">
-  <a href="https://chrome.google.com/webstore/detail/hackbar/algbkiepdpcjnhgagoddfcicdeaiimba" target="_blank" rel="noreferrer noopenner">
-    <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
-  </a>
-  <a href="https://addons.mozilla.org/firefox/addon/hackmd-kbar" target="_blank" rel="noreferrer noopenner">
-    <img src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" />
-  </a>
 </div>
 
 ## Table of Contents
